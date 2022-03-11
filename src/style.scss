@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background:  no-repeat url(./img/bg.jpg) center / cover;
+    justify-content: center;
+}
+
+#main {
+    position: relative;
+    width: 80vw;
+    height: max-content;
+    margin-top: 50px;
+    border: 1px solid black;
+    background: url(./img/cloud.jpg);
+}
+
+
+.weather {
+    display: grid;
+    width: 100%;
+    color:white;
+    background: rgba(8, 2, 31, 0.795);
+    text-align: center;
+
+    @media (min-width: 800px) {
+        grid-template-columns: 28% 11.6% 11.6% 11.6% 11.6% 11.6% 11.6%;
+    }
+
+
+    @media (min-width:400px) and (max-width: 800px) {
+        grid-template-columns: repeat(6);
+        grid-template-rows: repeat(2, max-content);
+        & .today {
+            grid-column-start: 1;
+            grid-column-end: 7;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        & div.anotherDay {
+            display: none;
+        }
+    }
+
+    & .today {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        align-items: center;
+        justify-self: center;
+        &>div {
+            &> div:first-child {
+                background: black;
+                padding: 3px 7px;
+                border-radius: 100px;
+            }
+            &>div:last-child {
+                font-size: 30px;
+            }
+        }
+    }
+    & .anotherDay {
+        display: grid;
+        justify-items: center;
+        padding: 10% 10%;
+        & div:first-child {
+            background: black;
+
+            width: 100%;
+            padding: 3px 7px;
+            border-radius: 100px;
+        }
+        & img {
+            width: 70%;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+
+.time-container {
+    width: max-content;
+    padding: 15px;
+    text-shadow: 3px 3px 3px black;
+    & .time {
+        font-size: 15vw;
+        color: white;
+        & span {
+            font-size: 5vw;
+        }
+    }
+    & .date-info {
+        // margin-bottom: 200px;
+        font-size: 6vw;
+        color: white;
+    } 
+    & .location {
+        margin-bottom: 200px;
+        font-size: 3vw;
+        color: white;
+    }
+    @media (min-width: 800px) {
+        & .time {
+            font-size: 7vw;
+            & span {
+                font-size: 3vw;
+            }
+        }
+        & .date-info {
+            font-size: 3vw;
+        }
+    }
+    @media (max-width: 800px) {
+        & .location {
+            font-size: 5vw;
+        }
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    width: max-content;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #141F26;
+    border: 1px solid grey;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    cursor: pointer;
+}   
